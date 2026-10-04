@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو القهوة - قهوة المزاج</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+        body {
+            background-color: #1a120b;
+            color: #f5f2eb;
+            padding: 15px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #261c14;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border: 1px solid #c5a059;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #c5a059;
+            padding-bottom: 15px;
+        }
+        header h1 {
+            color: #c5a059;
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        header p {
+            color: #d3c5b4;
+            font-size: 14px;
+        }
+        .table-badge {
+            background: #c5a059;
+            color: #1a120b;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .section-title {
+            color: #c5a059;
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+            border-right: 4px solid #c5a059;
+            padding-right: 8px;
+        }
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-item {
+            background: #33261c;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #4a3828;
+        }
+        .item-info h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+        .item-info span {
+            font-size: 12px;
+            color: #bfa892;
+        }
+        .item-price {
+            font-weight: 700;
+            color: #c5a059;
+            font-size: 15px;
+            background: #1a120b;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #4a3828;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #8c7865;
+            border-top: 1px solid #33261c;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>☕ قهوة المزاج</h1>
+            <p>أصول القهوة البلدي والروقان</p>
+            <div class="table-badge" id="tableNum">ترابيزة رقم: 1</div>
+        </header>
+
+        <!-- قسم القهوة والمشروبات الساخنة -->
+        <div class="section-title">القهوة والمشروبات الساخنة</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>قهوة سادة / مظبوطة</h3>
+                    <span>على الوجاق مباشرة</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>شاي كشري / عُبرة</h3>
+                    <span>مضبوط بالنعناع أو سادة</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>نسكافيه بلاك / باللبن</h3>
+                    <span>على الفوم الأصلي</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>أعشاب طبيعية</h3>
+                    <span>ينسون / نعناع / حلبة / قرفة</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+        </div>
+
+        <!-- قسم الشيشة -->
+        <div class="section-title">💨 المزاج (الشيشة)</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>شيشة تفاح / تفاحتين</h3>
+                    <span>حجر مظبوط وروقان</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>شيشة سلوم / قص</h3>
+                    <span>للأصالة أصول</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>شيشة نعناع / ليمون</h3>
+                    <span>انتعاش عالي</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+        </div>
+
+        <!-- قسم المشروبات الباردة -->
+        <div class="section-title">🥤 الساقع والمياه</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>كانز (بيبسي / سفن)</h3>
+                    <span>ساقع مثلج</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>مياه معدنية</h3>
+                    <span>صغيرة / كبيرة</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+        </div>
+
+        <footer>
+            نورتنا يا غالي - قهوة المزاج ☕
+        </footer>
+    </div>
+
+    <script>
+        // قراءة رقم الترابيزة لو حبيت تخصص رابط لكل ترابيزة
+        const urlParams = new URLSearchParams(window.location.search);
+        const tableNumber = urlParams.get('table') || '1';
+        document.getElementById('tableNum').innerText = `ترابيزة رقم: ${tableNumber}`;
+    </script>
+</body>
+</html>
