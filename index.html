@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منيو القهوة - قهوة المزاج</title>
+    <title>منيو قهوة دارابوكا - DRABOKA</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,66 +13,80 @@
             font-family: 'Cairo', sans-serif;
         }
         body {
-            background-color: #1a120b;
-            color: #f5f2eb;
+            background-color: #0b0b0b;
+            color: #f3efe6;
             padding: 15px;
             direction: rtl;
         }
         .container {
             max-width: 480px;
             margin: 0 auto;
-            background: #261c14;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            border: 1px solid #c5a059;
+            background: #141414;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 1px solid #d4af37;
         }
         header {
             text-align: center;
             margin-bottom: 25px;
-            border-bottom: 2px dashed #c5a059;
-            padding-bottom: 15px;
+            border-bottom: 2px dashed #333;
+            padding-bottom: 20px;
+        }
+        .logo-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .logo-box span {
+            color: #d4af37;
+            font-weight: 900;
+            font-size: 18px;
+            letter-spacing: 2px;
         }
         header h1 {
-            color: #c5a059;
-            font-size: 24px;
+            color: #d4af37;
+            font-size: 26px;
             font-weight: 900;
+            letter-spacing: 1px;
             margin-bottom: 5px;
         }
         header p {
-            color: #d3c5b4;
-            font-size: 14px;
-        }
-        .table-badge {
-            background: #c5a059;
-            color: #1a120b;
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            margin-top: 10px;
+            color: #999;
+            font-size: 13px;
         }
         .section-title {
-            color: #c5a059;
-            font-size: 18px;
-            margin: 20px 0 10px 0;
-            border-right: 4px solid #c5a059;
+            color: #d4af37;
+            font-size: 17px;
+            margin: 25px 0 12px 0;
+            border-right: 4px solid #d4af37;
             padding-right: 8px;
+            font-weight: 700;
         }
         .menu-grid {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .menu-item {
-            background: #33261c;
-            padding: 12px 15px;
-            border-radius: 10px;
+            background: #1b1b1b;
+            padding: 14px 16px;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #4a3828;
+            border: 1px solid #2a2a2a;
+            transition: 0.2s;
+        }
+        .menu-item:hover {
+            border-color: #d4af37;
         }
         .item-info h3 {
             font-size: 15px;
@@ -82,24 +96,25 @@
         }
         .item-info span {
             font-size: 12px;
-            color: #bfa892;
+            color: #888;
         }
         .item-price {
             font-weight: 700;
-            color: #c5a059;
-            font-size: 15px;
-            background: #1a120b;
-            padding: 5px 10px;
-            border-radius: 6px;
-            border: 1px solid #4a3828;
+            color: #d4af37;
+            font-size: 14px;
+            background: #0b0b0b;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid #333;
         }
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 35px;
             font-size: 12px;
-            color: #8c7865;
-            border-top: 1px solid #33261c;
+            color: #666;
+            border-top: 1px solid #222;
             padding-top: 15px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -107,13 +122,16 @@
 
     <div class="container">
         <header>
-            <h1>☕ قهوة المزاج</h1>
-            <p>أصول القهوة البلدي والروقان</p>
-            <div class="table-badge" id="tableNum">ترابيزة رقم: 1</div>
+            <!-- دايلر او دائرة اللوجو البصري -->
+            <div class="logo-box">
+                <span>DRABOKA</span>
+            </div>
+            <h1>دارابوكا</h1>
+            <p>أصل المزاج والروقان البلدي</p>
         </header>
 
         <!-- قسم القهوة والمشروبات الساخنة -->
-        <div class="section-title">القهوة والمشروبات الساخنة</div>
+        <div class="section-title">☕ القهوة والمشروبات الساخنة</div>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-info">
@@ -146,7 +164,7 @@
         </div>
 
         <!-- قسم الشيشة -->
-        <div class="section-title">💨 المزاج (الشيشة)</div>
+        <div class="section-title">💨 المزاج العالي (الشيشة)</div>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-info">
@@ -191,15 +209,10 @@
         </div>
 
         <footer>
-            نورتنا يا غالي - قهوة المزاج ☕
+            DRABOKA CAFE © 2026 - نورتنا يا غالي ☕
         </footer>
     </div>
 
-    <script>
-        // قراءة رقم الترابيزة لو حبيت تخصص رابط لكل ترابيزة
-        const urlParams = new URLSearchParams(window.location.search);
-        const tableNumber = urlParams.get('table') || '1';
-        document.getElementById('tableNum').innerText = `ترابيزة رقم: ${tableNumber}`;
-    </script>
 </body>
 </html>
+
