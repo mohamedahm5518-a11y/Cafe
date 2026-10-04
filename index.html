@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
         }
         body {
             background-color: #0b0b0b;
@@ -23,20 +24,20 @@
             margin: 0 auto;
             background: #141414;
             border-radius: 20px;
-            padding: 25px 20px;
+            padding: 20px 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             border: 1px solid #d4af37;
         }
         header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border-bottom: 2px dashed #333;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
         .logo-box {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 15px auto;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 12px auto;
             border: 2px solid #d4af37;
             border-radius: 50%;
             display: flex;
@@ -48,24 +49,56 @@
         .logo-box span {
             color: #d4af37;
             font-weight: 900;
-            font-size: 18px;
-            letter-spacing: 2px;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         header h1 {
             color: #d4af37;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         header p {
             color: #999;
-            font-size: 13px;
+            font-size: 12px;
+        }
+        /* زراير التنقل السريع للأقسام */
+        .nav-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 15px;
+            position: sticky;
+            top: 0;
+            background: #141414;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+        .nav-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-btn {
+            background: #1b1b1b;
+            color: #d4af37;
+            border: 1px solid #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .nav-btn:hover, .nav-btn:active {
+            background: #d4af37;
+            color: #0b0b0b;
         }
         .section-title {
             color: #d4af37;
-            font-size: 17px;
-            margin: 25px 0 12px 0;
+            font-size: 16px;
+            margin: 25px 0 10px 0;
             border-right: 4px solid #d4af37;
             padding-right: 8px;
             font-weight: 700;
@@ -73,44 +106,41 @@
         .menu-grid {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .menu-item {
             background: #1b1b1b;
-            padding: 14px 16px;
+            padding: 12px 14px;
             border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border: 1px solid #2a2a2a;
-            transition: 0.2s;
-        }
-        .menu-item:hover {
-            border-color: #d4af37;
         }
         .item-info h3 {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
         .item-info span {
-            font-size: 12px;
+            font-size: 11px;
             color: #888;
         }
         .item-price {
             font-weight: 700;
             color: #d4af37;
-            font-size: 14px;
+            font-size: 13px;
             background: #0b0b0b;
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 8px;
             border: 1px solid #333;
+            white-space: nowrap;
         }
         footer {
             text-align: center;
-            margin-top: 35px;
-            font-size: 12px;
+            margin-top: 30px;
+            font-size: 11px;
             color: #666;
             border-top: 1px solid #222;
             padding-top: 15px;
@@ -122,7 +152,6 @@
 
     <div class="container">
         <header>
-            <!-- دايلر او دائرة اللوجو البصري -->
             <div class="logo-box">
                 <span>DRABOKA</span>
             </div>
@@ -130,8 +159,17 @@
             <p>أصل المزاج والروقان البلدي</p>
         </header>
 
-        <!-- قسم القهوة والمشروبات الساخنة -->
-        <div class="section-title">☕ القهوة والمشروبات الساخنة</div>
+        <!-- شريط التنقل السريع للأقسام فوق -->
+        <div class="nav-bar">
+            <a href="#hot" class="nav-btn">☕ ساخنة</a>
+            <a href="#juices" class="nav-btn">🍹 عصائر</a>
+            <a href="#iced" class="nav-btn">🧊 قهوة مثلجة</a>
+            <a href="#milkshake" class="nav-btn">🥛 ميلك شيك</a>
+            <a href="#fresh" class="nav-btn">🌿 منعشة</a>
+        </div>
+
+        <!-- 1. المشروبات الساخنة -->
+        <div id="hot" class="section-title">☕ المشروبات الساخنة</div>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-info">
@@ -156,53 +194,112 @@
             </div>
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>أعشاب طبيعية</h3>
-                    <span>ينسون / نعناع / حلبة / قرفة</span>
+                    <h3>أعشاب طبيعية (ينسون، نعناع، حلبة)</h3>
+                    <span>دافية ومظبوطة</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
         </div>
 
-        <!-- قسم الشيشة -->
-        <div class="section-title">💨 المزاج العالي (الشيشة)</div>
+        <!-- 2. العصائر -->
+        <div id="juices" class="section-title">🍹 العصائر</div>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>شيشة تفاح / تفاحتين</h3>
-                    <span>حجر مظبوط وروقان</span>
+                    <h3>عصير ليمون فريش</h3>
+                    <span>بالنعناع أو سادة</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>شيشة سلوم / قص</h3>
-                    <span>للأصالة أصول</span>
+                    <h3>عصير مانجو</h3>
+                    <span>طازج ومثلج</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>شيشة نعناع / ليمون</h3>
-                    <span>انتعاش عالي</span>
+                    <h3>عصير جوافة باللبن</h3>
+                    <span>طعم أصلي ورايق</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
         </div>
 
-        <!-- قسم المشروبات الباردة -->
-        <div class="section-title">🥤 الساقع والمياه</div>
+        <!-- 3. القهوة المثلجة -->
+        <div id="iced" class="section-title">🧊 القهوة المثلجة</div>
         <div class="menu-grid">
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>كانز (بيبسي / سفن)</h3>
-                    <span>ساقع مثلج</span>
+                    <h3>آيس إسبانيش لاتيه</h3>
+                    <span>إسبريسو مع حليب مكثف وثلج</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
             <div class="menu-item">
                 <div class="item-info">
-                    <h3>مياه معدنية</h3>
-                    <span>صغيرة / كبيرة</span>
+                    <h3>آيس كراميل ماكياتو</h3>
+                    <span>إسبريسو، صوص كراميل وحليب</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>آيس كอฟـي (بلاتينيوم)</h3>
+                    <span>روقان صيفي عالي</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+        </div>
+
+        <!-- 4. الميلك شيك -->
+        <div id="milkshake" class="section-title">🥛 الميلك شيك</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>ميلك شيك شوكولاتة</h3>
+                    <span>مع صوص الشوكولاتة الغني</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>ميلك شيك فراولة</h3>
+                    <span>طعم فريش وكريمي</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>ميلك شيك فانيليا / كراميل</h3>
+                    <span>غني ولذيذ</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+        </div>
+
+        <!-- 5. المشروبات المنعشة -->
+        <div id="fresh" class="section-title">🌿 المشروبات المنعشة</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>موهيتو ليمون ونعناع (Classic Mojito)</h3>
+                    <span>صودا مع نعناع وليمون فريش</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>موهيتو نكهات (توت / بلو كراساو)</h3>
+                    <span>انتعاش يروي العطش</span>
+                </div>
+                <div class="item-price">ج.م</div>
+            </div>
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>كانز ساقع (بيبسي / سفن / بربيكان)</h3>
+                    <span>مثلج تماماً</span>
                 </div>
                 <div class="item-price">ج.م</div>
             </div>
@@ -215,4 +312,5 @@
 
 </body>
 </html>
+
 
