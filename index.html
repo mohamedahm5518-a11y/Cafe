@@ -1,1 +1,343 @@
-https://mohamedahm5518-a11y.github.io/Cafe
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو قهوة دارابوكا - DRABOKA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #060606;
+            --card-bg: #121212;
+            --gold: #dfb15b;
+            --gold-light: #f3d48c;
+            --gold-dark: #b38b34;
+            --text-main: #f5f2eb;
+            --text-muted: #9e9a93;
+            --border-gold: rgba(223, 177, 91, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 15px 8px;
+            direction: rtl;
+        }
+
+        .wrapper {
+            max-width: 550px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 25px 15px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
+            border: 1px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            border-bottom: 1px solid rgba(223, 177, 91, 0.15);
+            padding-bottom: 20px;
+        }
+
+        /* اللوجو بعرض الصفحة بالكامل وبشكل بانر فخم */
+        .brand-logo-img {
+            width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 12px rgba(223, 177, 91, 0.35));
+        }
+
+        .brand-logo-text {
+            font-size: 34px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .brand-sub {
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* شريط التنقل السريع */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            z-index: 100;
+            padding: 5px 0 12px 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none;
+        }
+
+        .nav-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-btn {
+            background: #181818;
+            color: var(--gold);
+            border: 1px solid var(--border-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn:active {
+            background: var(--gold);
+            color: #060606;
+            box-shadow: 0 0 12px rgba(223, 177, 91, 0.4);
+        }
+
+        /* عنوان القسم في منتصف الصفحة بالضبط */
+        .section-title {
+            color: var(--gold);
+            font-size: 16px;
+            margin: 30px 0 12px 0;
+            font-weight: 800;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title::before, .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(18,18,18,0) 0%, rgba(223, 177, 91, 0.4) 100%);
+        }
+
+        .section-title::after {
+            background: linear-gradient(90deg, rgba(223, 177, 91, 0.4) 0%, rgba(18,18,18,0) 100%);
+        }
+
+        /* شبكة الأعمدة (عمودين) للأصناف */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-card:hover {
+            border-color: rgba(223, 177, 91, 0.5);
+            background: linear-gradient(135deg, #202020 0%, #121212 100%);
+            transform: translateY(-2px);
+        }
+
+        .menu-card h3 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        /* صور الأطباق الحقيقية بدلاً من الرموز */
+        .item-photo {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid rgba(223, 177, 91, 0.3);
+            flex-shrink: 0;
+            margin-right: 8px;
+            background: #222;
+        }
+
+        /* زر تقييم جوجل الفخم */
+        .google-review-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            color: #060606;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 16px;
+            font-weight: 900;
+            font-size: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(223, 177, 91, 0.35);
+            margin-top: 35px;
+        }
+
+        .google-review-btn:hover {
+            transform: scale(0.99);
+            filter: brightness(1.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <!-- صورة اللوجو بعرض الصفحة (تأكد من رفع logo.png، ولو مش موجود هيظهر اسم دارابوكا البراق تلقائياً) -->
+            <img src="logo.png" alt="DRABOKA" class="brand-logo-img" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block';">
+            <div id="text-logo" style="display:none;">
+                <div class="brand-logo-text">DRABOKA</div>
+            </div>
+            <div class="brand-sub">أصل المزاج والروقان البلدي</div>
+        </header>
+
+        <!-- شريط التنقل السريع -->
+        <div class="nav-container">
+            <div class="nav-bar">
+                <a href="#hot-coffee" class="nav-btn">☕ هوت كوفي</a>
+                <a href="#hot-drinks" class="nav-btn">🫖 ساخنة</a>
+                <a href="#iced" class="nav-btn">🧊 آيس كوفي</a>
+                <a href="#mojito" class="nav-btn">🌿 موهيتو</a>
+                <a href="#milkshake" class="nav-btn">🥛 ميلك شيك</a>
+                <a href="#juices" class="nav-btn">🍹 العصاير</a>
+            </div>
+        </div>
+
+        <!-- 1. هوت كوفي -->
+        <div id="hot-coffee" class="section-title">هوت كوفي</div>
+        <div class="menu-grid">
+            <div class="menu-card"><h3>قهوه تركي سنجل/دبل</h3><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&auto=format&fit=crop&q=60" alt="قهوة" class="item-photo"></div>
+            <div class="menu-card"><h3>قهوة بندق</h3><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=100&auto=format&fit=crop&q=60" alt="قهوة بندق" class="item-photo"></div>
+            <div class="menu-card"><h3>قهوة فرنساوي</h3><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=100&auto=format&fit=crop&q=60" alt="فرنسي" class="item-photo"></div>
+            <div class="menu-card"><h3>قهوة نوتيلا</h3><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=100&auto=format&fit=crop&q=60" alt="نوتيلا" class="item-photo"></div>
+            <div class="menu-card"><h3>اسبرسو</h3><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=100&auto=format&fit=crop&q=60" alt="اسبرسو" class="item-photo"></div>
+            <div class="menu-card"><h3>اسبرسو دبل</h3><img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=100&auto=format&fit=crop&q=60" alt="اسبرسو دبل" class="item-photo"></div>
+            <div class="menu-card"><h3>اسبرسو امريكانو</h3><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&auto=format&fit=crop&q=60" alt="امريكانو" class="item-photo"></div>
+            <div class="menu-card"><h3>لاتيه</h3><img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=100&auto=format&fit=crop&q=60" alt="لاتيه" class="item-photo"></div>
+            <div class="menu-card"><h3>كابتشينو</h3><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=100&auto=format&fit=crop&q=60" alt="كابتشينو" class="item-photo"></div>
+            <div class="menu-card"><h3>فلات وايت</h3><img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=100&auto=format&fit=crop&q=60" alt="فلات وايت" class="item-photo"></div>
+            <div class="menu-card"><h3>سبانيش لاتيه</h3><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=100&auto=format&fit=crop&q=60" alt="سبانيش لاتيه" class="item-photo"></div>
+            <div class="menu-card"><h3>موكا</h3><img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=100&auto=format&fit=crop&q=60" alt="موكا" class="item-photo"></div>
+            <div class="menu-card"><h3>نسكافيه</h3><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&auto=format&fit=crop&q=60" alt="نسكافيه" class="item-photo"></div>
+            <div class="menu-card"><h3>كورتادو</h3><img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=100&auto=format&fit=crop&q=60" alt="كورتادو" class="item-photo"></div>
+            <div class="menu-card"><h3>ميكياتو</h3><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&auto=format&fit=crop&q=60" alt="ميكياتو" class="item-photo"></div>
+            <div class="menu-card"><h3>هوت شوكلت</h3><img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=100&auto=format&fit=crop&q=60" alt="هوت شوكلت" class="item-photo"></div>
+        </div>
+
+        <!-- 2. المشروبات الساخنة -->
+        <div id="hot-drinks" class="section-title">المشروبات الساخنة</div>
+        <div class="menu-grid">
+            <div class="menu-card"><h3>شاي / زرده / براد</h3><img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=100&auto=format&fit=crop&q=60" alt="شاي" class="item-photo"></div>
+            <div class="menu-card"><h3>أعشاب</h3><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=100&auto=format&fit=crop&q=60" alt="أعشاب" class="item-photo"></div>
+            <div class="menu-card"><h3>كركديه</h3><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=100&auto=format&fit=crop&q=60" alt="كركديه" class="item-photo"></div>
+            <div class="menu-card"><h3>سحلب "فواكه - نوتيلا - مكسرات - لوتس"</h3><img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=100&auto=format&fit=crop&q=60" alt="سحلب" class="item-photo"></div>
+            <div class="menu-card" style="grid-column: span 2;"><h3>هوت سيدر</h3><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=100&auto=format&fit=crop&q=60" alt="هوت سيدر" class="item-photo"></div>
+        </div>
+
+        <!-- 3. آيس كوفي -->
+        <div id="iced" class="section-title">آيس كوفي</div>
+        <div class="menu-grid">
+            <div class="menu-card"><h3>آيس لاتيه</h3><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=100&auto=format&fit=crop&q=60" alt="آيس لاتيه" class="item-photo"></div>
+            <div class="menu-card"><h3>آيس موكا</h3><img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=100&auto=format&fit=crop&q=60" alt="آيس موكا" class="item-photo"></div>
+            <div class="menu-card"><h3>آيس كابتشينو</h3><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=100&auto=format&fit=crop&q=60" alt="آيس كابتشينو" class="item-photo"></div>
+            <div class="menu-card"><h3>آيس سبانيش لاتيه</h3><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=100&auto=format&fit=crop&q=60" alt="آيس سبانيش" class="item-photo"></div>
+            <div class="menu-card"><h3>آيس نسكافيه</h3><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=100&auto=format&fit=crop&q=60" alt="آيس نسكافيه" class="item-photo"></div>
+            <div class="menu-card"><h3>إسبرسو أفوكادو</h3><img src="https://images.unsplash.com/photo-1550950158-d0d960dff51b?w=100&auto=format&fit=crop&q=60" alt="أفوكادو" class="item-photo"></div>
+            <div class="menu-card"><h3>فرابتشينو كلاسيك</h3><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=100&auto=format&fit=crop&q=60" alt="فرابتشينو" class="item-photo"></div>
+            <div class="menu-card"><h3>فرابتشينو فليفر</h3><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=100&auto=format&fit=crop&q=60" alt="فرابتشينو فليفر" class="item-photo"></div>
+        </div>
+
+        <!-- 4. موهيتو وسودا -->
+        <div id="mojito" class="section-title">موهيتو وسودا</div>
+        <div class="menu-grid">
+            <div class="menu-card"><h3>موهيتو كلاسيك</h3><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=100&auto=format&fit=crop&q=60" alt="موهيتو" class="item-photo"></div>
+            <div class="menu-card"><h3>موهيتو فلڤر</h3><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=100&auto=format&fit=crop&q=60" alt="موهيتو فليفر" class="item-photo"></div>
+            <div class="menu-card"><h3>سن شاين</h3><img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=100&auto=format&fit=crop&q=60" alt="سن شاين" class="item-photo"></div>
+            <div class="menu-card"><h3>سن رايز</h3><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=100&auto=format&fit=crop&q=60" alt="سن رايز" class="item-photo"></div>
+        </div>
+
+        <!-- 5. ميلك شيك والزبادي -->
+        <div id="milkshake" class="section-title">ميلك شيك والزبادي</div>
+        <div class="menu-grid">
+            <div class="menu-card" style="grid-column: span 2;"><h3>ميلك شيك "شوكليت - ڤانيليا - فراوله - مانجا - بلوبيري - اوريو - سنيكرز"</h3><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=100&auto=format&fit=crop&q=60" alt="ميلك شيك" class="item-photo"></div>
+            <div class="menu-card"><h3>ميلك شيك مكسرات</h3><img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=100&auto=format&fit=crop&q=60" alt="مكسرات" class="item-photo"></div>
+            <div class="menu-card"><h3>زبادي فواكه</h3><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=100&auto=format&fit=crop&q=60" alt="زبادي" class="item-photo"></div>
+            <div class="menu-card" style="grid-column: span 2;"><h3>زبادي عسل</h3><img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?w=100&auto=format&fit=crop&q=60" alt="زبادي عسل" class="item-photo"></div>
+        </div>
+
+        <!-- 6. العصاير -->
+        <div id="juices" class="section-title">العصاير</div>
+        <div class="menu-grid">
+            <div class="menu-card"><h3>ليمون</h3><img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=100&auto=format&fit=crop&q=60" alt="ليمون" class="item-photo"></div>
+            <div class="menu-card"><h3>ليمون نعناع</h3><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=100&auto=format&fit=crop&q=60" alt="ليمون نعناع" class="item-photo"></div>
+            <div class="menu-card"><h3>برتقال</h3><img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=100&auto=format&fit=crop&q=60" alt="برتقال" class="item-photo"></div>
+            <div class="menu-card"><h3>فراولة</h3><img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=100&auto=format&fit=crop&q=60" alt="فراولة" class="item-photo"></div>
+            <div class="menu-card"><h3>مانجو</h3><img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=100&auto=format&fit=crop&q=60" alt="مانجو" class="item-photo"></div>
+            <div class="menu-card"><h3>جوافة</h3><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=100&auto=format&fit=crop&q=60" alt="جوافة" class="item-photo"></div>
+            <div class="menu-card"><h3>موز</h3><img src="https://images.unsplash.com/photo-1543218024-57a4014d4e3b?w=100&auto=format&fit=crop&q=60" alt="موز" class="item-photo"></div>
+            <div class="menu-card"><h3>بطيخ</h3><img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?w=100&auto=format&fit=crop&q=60" alt="بطيخ" class="item-photo"></div>
+            <div class="menu-card"><h3>بلح</h3><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=100&auto=format&fit=crop&q=60" alt="بلح" class="item-photo"></div>
+            <div class="menu-card"><h3>فلوريدا</h3><img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=100&auto=format&fit=crop&q=60" alt="فلوريدا" class="item-photo"></div>
+            <div class="menu-card" style="grid-column: span 2;"><h3>كوكتيل الدربوكه</h3><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=100&auto=format&fit=crop&q=60" alt="كوكتيل الدربوكه" class="item-photo"></div>
+        </div>
+
+        <!-- زرار تقييم جوجل المخصص -->
+        <a href="https://maps.app.goo.gl/St3e1DUJPXENgesDA?g_st=ic" target="_blank" class="google-review-btn">
+            <span>⭐</span> رأيك يهمني يدولي
+        </a>
+
+        <footer>
+            DRABOKA CAFE © 2026 - جميع الحقوق محفوظة ☕
+        </footer>
+    </div>
+
+</body>
+</html>
