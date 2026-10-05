@@ -1,104 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DARABOKA | Café</title>
-  <meta name="description" content="DARABOKA Café - Black and Gold luxury coffee experience." />
-  <style>
-    :root{
-      --bg: #0d0d0f;
-      --bg-2: #171719;
-      --panel: #141416;
-      --panel-2: #1b1b1e;
-      --gold: #d8ac4a;
-      --gold-soft: #f1d490;
-      --text: #f7f3ee;
-      --muted: #c9c0b1;
-      --line: rgba(216,172,74,0.25);
-      --shadow: 0 18px 40px rgba(0,0,0,0.35);
-      --radius: 20px;
-      --max: 1200px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منيو قهوة دارابوكا - DRABOKA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0b0b0b;
+            color: #f3efe6;
+            padding: 15px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #141414;
+            border-radius: 20px;
+            padding: 25px 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 1px solid #d4af37;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #333;
+            padding-bottom: 20px;
+        }
+        /* تصميم دائرة اللوجو الفخم */
+        .logo-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px auto;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .logo-box span {
+            color: #d4af37;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        header h1 {
+            color: #d4af37;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        header p {
+            color: #999;
+            font-size: 13px;
+        }
+        /* زراير التنقل السريع للأقسام */
+        .nav-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: #141414;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+        .nav-bar::-webkit-scrollbar {
+            display: none;
+        }
+        .nav-btn {
+            background: #1b1b1b;
+            color: #d4af37;
+            border: 1px solid #333;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .nav-btn:hover {
+            background: #d4af37;
+            color: #0b0b0b;
+        }
+        .section-title {
+            color: #d4af37;
+            font-size: 17px;
+            margin: 25px 0 12px 0;
+            border-right: 4px solid #d4af37;
+            padding-right: 8px;
+            font-weight: 700;
+        }
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-item {
+            background: #1b1b1b;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            transition: 0.2s;
+        }
+        .menu-item:hover {
+            border-color: #d4af37;
+        }
+        .menu-item h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+        .menu-item p {
+            font-size: 12px;
+            color: #888;
+        }
+        /* زرار تقييم جوجل */
+        .review-btn {
+            display: block;
+            width: 100%;
+            background: #d4af37;
+            color: #0b0b0b;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 15px;
+            text-align: center;
+            transition: 0.2s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 30px;
+        }
+        .review-btn:hover {
+            background: #e6c55c;
+        }
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 11px;
+            color: #666;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height:1.6;
-    }
+    <div class="container">
+        <header>
+            <div class="logo-box">
+                <span>DRABOKA</span>
+            </div>
+            <h1>دارابوكا</h1>
+            <p>أصل المزاج والروقان البلدي</p>
+        </header>
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+        <!-- شريط الأقسام السريع -->
+        <div class="nav-bar">
+            <a href="#hot" class="nav-btn">☕ هوت كوفي</a>
+            <a href="#iced" class="nav-btn">🧊 آيس كوفي</a>
+            <a href="#hot-drinks" class="nav-btn">🫖 ساخنة</a>
+            <a href="#mojito" class="nav-btn">🌿 موهيتو</a>
+            <a href="#smoothie" class="nav-btn">🥤 سموذي وميلك</a>
+            <a href="#fresh" class="nav-btn">🍹 فريش وكوكتيل</a>
+        </div>
 
-    img{
-      display:block;
-      max-width:100%;
-    }
+        <!-- 1. هوت كوفي -->
+        <div id="hot" class="section-title">☕ هوت كوفي</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>قهوة تركي / سادة / مظبوطة</h3>
+                <p>على الوجاق بأصول المزاج</p>
+            </div>
+            <div class="menu-item">
+                <h3>قهوة بندق / فرنساوي</h3>
+                <p>نكهات غنية ومميزة</p>
+            </div>
+            <div class="menu-item">
+                <h3>لاتيه / كابتشينو / فلات وايت</h3>
+                <p>رغوة كريمية وإسبريسو مركز</p>
+            </div>
+            <div class="menu-item">
+                <h3>سبانيش لاتيه / كراميل ماكياتو</h3>
+                <p>مكس الحلاوة والروقان</p>
+            </div>
+            <div class="menu-item">
+                <h3>هوت شوكلت / نوتيلا</h3>
+                <p>دفء السهرة على أصوله</p>
+            </div>
+        </div>
 
-    .container{
-      width:min(var(--max), calc(100% - 36px));
-      margin-inline:auto;
-    }
+        <!-- 2. آيس كوفي -->
+        <div id="iced" class="section-title">🧊 آيس كوفي</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>آيس لاتيه / آيس موكا</h3>
+                <p>انتعاش الإسبريسو المثلج</p>
+            </div>
+            <div class="menu-item">
+                <h3>آيس سبانيش لاتيه</h3>
+                <p>إسبريسو مع حليب مكثف وثلج</p>
+            </div>
+            <div class="menu-item">
+                <h3>فرابتشينو (كلاسيك / كراميل / شوكلت)</h3>
+                <p>مضروب ومجروش بالرغوة الغنية</p>
+            </div>
+        </div>
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 14px 24px;
-      border: 1px solid var(--gold);
-      background: linear-gradient(135deg, var(--gold) 0%, #b9882b 100%);
-      color:#120d07;
-      border-radius: 999px;
-      font-weight:700;
-      transition: .25s ease;
-      box-shadow: 0 10px 25px rgba(216,172,74,.25);
-    }
-    .btn:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 18px 30px rgba(216,172,74,.28);
-    }
+        <!-- 3. المشروبات الساخنة -->
+        <div id="hot-drinks" class="section-title">🫖 المشروبات الساخنة</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>شاي كشري / عُبرة / براد</h3>
+                <p>مضبوط بالنعناع أو سادة</p>
+            </div>
+            <div class="menu-item">
+                <h3>أعشاب طبيعية (ينسون، نعناع، حلبة)</h3>
+                <p>فريش ودافية</p>
+            </div>
+            <div class="menu-item">
+                <h3>سحلب بالمكسرات</h3>
+                <p>روقان الشتا واللمة</p>
+            </div>
+        </div>
 
-    .btn-light{
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.16);
-    }
+        <!-- 4. موهيتو وسودا -->
+        <div id="mojito" class="section-title">🌿 موهيتو وسودا</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>موهيتو كلاسيك (ليمون ونعناع)</h3>
+                <p>صودا منعشة تروي العطش</p>
+            </div>
+            <div class="menu-item">
+                <h3>موهيتو نكهات (توت / بلو كراساو)</h3>
+                <p>انتعاش عالي ومميز</p>
+            </div>
+            <div class="menu-item">
+                <h3>سن بلو / سن سيت / سن شاين</h3>
+                <p>مكسات صيفية تروق الدم</p>
+            </div>
+        </div>
 
-    .section-tag{
-      color: var(--gold-soft);
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      font-size: 12px;
-      font-weight:700;
-      margin-bottom: 12px;
-    }
+        <!-- 5. سموذي وميلك شيك -->
+        <div id="smoothie" class="section-title">🥤 سموذي وميلك شيك</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>ميلك شيك (شوكولاتة، فراولة، فانيليا)</h3>
+                <p>غني وكريمي ولذيذ</p>
+            </div>
+            <div class="menu-item">
+                <h3>ميلك شيك أوريو / كيت كات / فستق</h3>
+                <p>طعم عالمي فاخر</p>
+            </div>
+            <div class="menu-item">
+                <h3>سموذي فواكه (مانجو، خوخ، ليمون)</h3>
+                <p>طازج ومثلج</p>
+            </div>
+        </div>
 
-    .section-title{
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height:1.1;
-      margin:0;
-      font-family: Georgia, "Times New Roman", serif;
-      letter-spacing: .5px;
-    }
+        <!-- 6. فريش وكوكتيل -->
+        <div id="fresh" class="section-title">🍹 فريش وكوكتيل</div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>عصائر طبيعية (ليمون، مانجو، جوافة، فراولة)</h3>
+                <p>فواكه طازجة 100%</p>
+            </div>
+            <div class="menu-item">
+                <h3>كوكتيل دارابوكا الخاص</h3>
+                <p>مكسات فواكه على مزاجك</p>
+            </div>
+            <div class="menu-item">
+                <h3>باور هيد / بينا كولادا</h3>
+                <p>انتعاش وطاقة مضاعفة</p>
+            </div>
+        </div>
 
-    .muted{
-      color: var(--muted);
-    }
+        <!-- زرار تقييم جوجل -->
+        <a href="https://maps.app.goo.gl/St3e1DUJPXENgesDA?g_st=ic" target="_blank" class="review-btn">
+            ⭐ رأيك يهمنا.. قيّمنا على جوجل!
+        </a>
 
-    /* Header */
-    header{
-      position: sticky;
-      top:0;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(13, 13, 15, .82);
-      border-bottom: 1px solid rgba(255,255,255
+        <footer>
+            DRABOKA CAFE © 2026 - نورتنا يا غالي ☕
+        </footer>
+    </div>
+
+</body>
+</html>
+
 
 
