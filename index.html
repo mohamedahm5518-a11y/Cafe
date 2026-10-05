@@ -14,142 +14,194 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: #0b0b0b;
+            background-color: #070707;
             color: #f3efe6;
-            padding: 15px;
+            padding: 20px 10px;
             direction: rtl;
         }
         .container {
-            max-width: 480px;
+            max-width: 460px;
             margin: 0 auto;
-            background: #141414;
-            border-radius: 20px;
-            padding: 25px 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            border: 1px solid #d4af37;
+            background: #111111;
+            border-radius: 24px;
+            padding: 25px 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        /* خلفية جمالية خفيفة */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(180deg, rgba(212,175,55,0.08) 0%, rgba(17,17,17,0) 100%);
+            z-index: 1;
+            pointer-events: none;
         }
         header {
             text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 2px dashed #333;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             padding-bottom: 20px;
         }
         .logo-box {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 15px auto;
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 12px auto;
             border: 2px solid #d4af37;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
         }
         .logo-box span {
             color: #d4af37;
             font-weight: 900;
-            font-size: 14px;
-            letter-spacing: 1px;
+            font-size: 13px;
+            letter-spacing: 1.5px;
         }
         header h1 {
-            color: #d4af37;
-            font-size: 26px;
+            color: #f8f5ee;
+            font-size: 24px;
             font-weight: 900;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
+        }
+        header h1 span {
+            color: #d4af37;
         }
         header p {
-            color: #999;
-            font-size: 13px;
+            color: #8c8c8c;
+            font-size: 12px;
+            letter-spacing: 0.5px;
         }
-        /* زراير التنقل السريع للأقسام */
+        /* شريط التنقل السريع الفخم */
         .nav-bar {
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding: 10px 0;
-            margin-bottom: 20px;
+            padding: 5px 2px 15px 2px;
+            margin-bottom: 10px;
             position: sticky;
             top: 0;
-            background: #141414;
+            background: #111111;
             z-index: 100;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .nav-bar::-webkit-scrollbar {
-            display: none;
+            height: 3px;
+        }
+        .nav-bar::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 3px;
         }
         .nav-btn {
-            background: #1b1b1b;
+            background: #191919;
             color: #d4af37;
-            border: 1px solid #333;
-            padding: 6px 14px;
-            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 7px 14px;
+            border-radius: 30px;
             font-size: 12px;
             font-weight: 700;
             white-space: nowrap;
             text-decoration: none;
-            transition: 0.2s;
+            transition: all 0.3s ease;
         }
-        .nav-btn:hover {
+        .nav-btn:hover, .nav-btn:active {
             background: #d4af37;
-            color: #0b0b0b;
+            color: #070707;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
         .section-title {
             color: #d4af37;
-            font-size: 17px;
+            font-size: 16px;
             margin: 25px 0 12px 0;
-            border-right: 4px solid #d4af37;
-            padding-right: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212,175,55,0.4) 0%, rgba(17,17,17,0) 100%);
         }
         .menu-grid {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 9px;
         }
         .menu-item {
-            background: #1b1b1b;
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 1px solid #2a2a2a;
-            transition: 0.2s;
+            background: linear-gradient(135deg, #161616 0%, #121212 100%);
+            padding: 13px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         .menu-item:hover {
-            border-color: #d4af37;
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #1b1b1b 0%, #141414 100%);
         }
         .menu-item h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            color: #eae5d9;
         }
-        /* زرار تقييم جوجل */
+        .item-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-left: 10px;
+        }
+        /* زرار تقييم جوجل الفخم */
         .review-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             width: 100%;
-            background: #d4af37;
-            color: #0b0b0b;
+            background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+            color: #070707;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 14px;
             font-weight: 900;
             font-size: 15px;
             text-align: center;
-            transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+            margin-top: 35px;
         }
         .review-btn:hover {
-            background: #e6c55c;
+            transform: scale(0.99);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #e6c148 0%, #b89731 100%);
         }
         footer {
             text-align: center;
             margin-top: 25px;
             font-size: 11px;
             color: #666;
-            border-top: 1px solid #222;
-            padding-top: 15px;
             letter-spacing: 1px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 15px;
         }
     </style>
 </head>
@@ -160,7 +212,7 @@
             <div class="logo-box">
                 <span>DRABOKA</span>
             </div>
-            <h1>دارابوكا</h1>
+            <h1>قهوة <span>دارابوكا</span></h1>
             <p>أصل المزاج والروقان البلدي</p>
         </header>
 
@@ -170,17 +222,26 @@
             <a href="#hot-drinks" class="nav-btn">🫖 ساخنة</a>
             <a href="#iced" class="nav-btn">🧊 آيس كوفي</a>
             <a href="#mojito" class="nav-btn">🌿 موهيتو</a>
-            <a href="#milkshake" class="nav-btn">🥛 ميلك شيك والزبادي</a>
+            <a href="#milkshake" class="nav-btn">🥛 ميلك شيك</a>
             <a href="#juices" class="nav-btn">🍹 العصاير</a>
         </div>
 
         <!-- 1. هوت كوفي -->
         <div id="hot-coffee" class="section-title">☕ هوت كوفي</div>
         <div class="menu-grid">
-            <div class="menu-item"><h3>قهوه تركي سنجل/دبل</h3></div>
-            <div class="menu-item"><h3>قهوة بندق</h3></div>
+            <div class="menu-item">
+                <h3>قهوه تركي سنجل/دبل</h3>
+                <img src="turkish.jpg" alt="قهوة تركي" class="item-img" onerror="this.style.display='none'">
+            </div>
+            <div class="menu-item">
+                <h3>قهوة بندق</h3>
+                <img src="hazelnut.jpg" alt="قهوة بندق" class="item-img" onerror="this.style.display='none'">
+            </div>
             <div class="menu-item"><h3>قهوة فرنساوي</h3></div>
             <div class="menu-item"><h3>قهوة نوتيلا</h3></div>
+            <div class="menu-item"><h3>اسبرسو</h3></div>
+            <div class="menu-item"><h3>اسبرسو دبل</h3></div>
+            <div class="menu-item"><h3>اسبرسو امريكانو</h3></div>
             <div class="menu-item"><h3>لاتيه</h3></div>
             <div class="menu-item"><h3>كابتشينو</h3></div>
             <div class="menu-item"><h3>فلات وايت</h3></div>
@@ -213,8 +274,6 @@
             <div class="menu-item"><h3>إسبرسو أفوكادو</h3></div>
             <div class="menu-item"><h3>فرابتشينو كلاسيك</h3></div>
             <div class="menu-item"><h3>فرابتشينو فليفر</h3></div>
-            <div class="menu-item"><h3>فرابتشينو كاراميل</h3></div>
-            <div class="menu-item"><h3>فرابتشينو شوكلت</h3></div>
         </div>
 
         <!-- 4. موهيتو وسودا -->
@@ -222,11 +281,6 @@
         <div class="menu-grid">
             <div class="menu-item"><h3>موهيتو كلاسيك</h3></div>
             <div class="menu-item"><h3>موهيتو فلڤر</h3></div>
-            <div class="menu-item"><h3>موهيتو بلوبيري</h3></div>
-            <div class="menu-item"><h3>موهيتو مانجو باشون</h3></div>
-            <div class="menu-item"><h3>أپتاون موهيتو</h3></div>
-            <div class="menu-item"><h3>سن بلو</h3></div>
-            <div class="menu-item"><h3>سن سيت</h3></div>
             <div class="menu-item"><h3>سن شاين</h3></div>
             <div class="menu-item"><h3>سن رايز</h3></div>
         </div>
@@ -235,11 +289,9 @@
         <div id="milkshake" class="section-title">🥛 ميلك شيك والزبادي</div>
         <div class="menu-grid">
             <div class="menu-item"><h3>ميلك شيك "شوكليت - ڤانيليا - فراوله - مانجا - بلوبيري - اوريو - سنيكرز"</h3></div>
-            <div class="menu-item"><h3>ميلك شيك فليفر / كلاسيك / فستق / كيت كات</h3></div>
-            <div class="menu-item"><h3>زبادي فليفر</h3></div>
+            <div class="menu-item"><h3>ميلك شيك كلاسيك / فستق / كيت كات</h3></div>
+            <div class="menu-item"><h3>زبادي فواكه</h3></div>
             <div class="menu-item"><h3>زبادي عسل</h3></div>
-            <div class="menu-item"><h3>سموذي مانجو / خوخ / ليمون / بلوبيري / فراوله / ليمون نعناع</h3></div>
-            <div class="menu-item"><h3>أپتاون سموذي</h3></div>
         </div>
 
         <!-- 6. العصاير -->
@@ -256,13 +308,12 @@
             <div class="menu-item"><h3>بلح</h3></div>
             <div class="menu-item"><h3>فلوريدا</h3></div>
             <div class="menu-item"><h3>بينا كولادا</h3></div>
-            <div class="menu-item"><h3>مانجو كيوي</h3></div>
-            <div class="menu-item"><h3>أپتاون كوكتيل</h3></div>
+            <div class="menu-item"><h3>كوكتيل الدربوكه</h3></div>
         </div>
 
-        <!-- زرار تقييم جوجل -->
+        <!-- زرار تقييم جوجل الفخم -->
         <a href="https://maps.app.goo.gl/St3e1DUJPXENgesDA?g_st=ic" target="_blank" class="review-btn">
-            ⭐ رأيك يهمنا.. قيّمنا على جوجل!
+            <span>⭐</span> رأيك يهمنا.. قيّمنا على جوجل!
         </a>
 
         <footer>
@@ -272,6 +323,7 @@
 
 </body>
 </html>
+
 
 
 
